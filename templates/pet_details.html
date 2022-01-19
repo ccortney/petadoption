@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class = "container">
+    <div class = "row justify-content-center">
+        <div class = "col-6 border">
+            <img src="{{pet.image_url}}" class = "img-thumbnail mx-auto d-block my-2" alt="image of pet">
+            <p class = "h4">{{pet.name}}</p>
+            <p>Available: {% if pet.available == True %} Yes {% else %} No {% endif %}</p>
+            <p>Species: {{pet.species}} </p>
+            <p>Age: {% if pet.age == None %} Unknown {% else %} {{pet.age}} {% endif %}</p>
+            <p>Notes: {{pet.notes}}</p>
+        </div> 
+        
+    </div>
+    <div class = "row justify-content-center">
+        <a href="/pet/{{pet.id}}/edit" class = "btn btn-info m-2">Edit Pet</a>
+        <a href="/" class = "btn btn-secondary m-2">Go Back</a>
+    </div>
+</div>
+
+
+{% endblock %}
